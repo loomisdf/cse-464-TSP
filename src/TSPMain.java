@@ -78,8 +78,48 @@ public class TSPMain {
 
     public static void main(String[] args) {
 
-        Graph g = Graph.makeGraphFromXML("burma14.xml", 14);
-        Tour greedy_tour = solve_TSP(g);
-        System.out.println(greedy_tour);
+        double percent_within_optimal = 0;
+        long beforetime = 0;
+        long aftertime = 0;
+
+        Graph fri26_g = Graph.makeGraphFromXML("fri26.xml", 26);
+        beforetime = System.currentTimeMillis();
+        Tour fri26_tour = solve_TSP(fri26_g);
+        aftertime = System.currentTimeMillis();
+        int fri26_opt_len = 937;
+        percent_within_optimal = ((fri26_tour.length - fri26_opt_len) / fri26_opt_len) * 100;
+        System.out.println("fri26");
+        System.out.printf("Greedy %s\n", fri26_tour);
+        System.out.printf("Elapsed time: %dms\n", (aftertime - beforetime));
+        System.out.printf("Optimal tour: %d\n", fri26_opt_len);
+        System.out.printf("Percentage within optimal: %.1f%%\n", percent_within_optimal);
+
+        System.out.println();
+
+        Graph ch150_g = Graph.makeGraphFromXML("ch150.xml", 150);
+        beforetime = System.currentTimeMillis();
+        Tour ch150_tour = solve_TSP(ch150_g);
+        aftertime = System.currentTimeMillis();
+        int ch150_opt_len = 6528;
+        percent_within_optimal = ((ch150_tour.length - ch150_opt_len) / ch150_opt_len) * 100;
+        System.out.println("ch150");
+        System.out.printf("Greedy %s\n", ch150_tour);
+        System.out.printf("Elapsed time: %dms\n", (aftertime - beforetime));
+        System.out.printf("Optimal tour: %d\n", ch150_opt_len);
+        System.out.printf("Percentage within optimal: %.1f%%\n", percent_within_optimal);
+
+        System.out.println();
+
+        Graph d1655_g = Graph.makeGraphFromXML("d1655.xml", 1655);
+        beforetime = System.currentTimeMillis();
+        Tour d1655_tour = solve_TSP(d1655_g);
+        aftertime = System.currentTimeMillis();
+        int d1655_opt_len = 62128;
+        percent_within_optimal = ((d1655_tour.length - d1655_opt_len) / d1655_opt_len) * 100;
+        System.out.println("d1655");
+        System.out.printf("Greedy %s\n", d1655_tour);
+        System.out.printf("Elapsed time: %dms\n", (aftertime - beforetime));
+        System.out.printf("Optimal tour: %d\n", d1655_opt_len);
+        System.out.printf("Percentage within optimal: %.1f%%\n", percent_within_optimal);
     }
 }
