@@ -38,11 +38,6 @@ public class TSPMain {
             visited.add(closest_vert);
             solveTSP_greedy(t, g, visited);
         }
-        else {
-//            t.path.add(g.start);
-//            t.length += adj_vertices.get(g.start);
-        }
-
     }
 
     // Finds the best tour using brute force
@@ -67,9 +62,6 @@ public class TSPMain {
             }
         }
         else {
-            // Calculate the length back to the start node
-            t.path.add(g.start);
-            t.length += adj_vertices.get(g.start);
             if(t.length < best_tour.length) {
                 best_tour = t;
             }
